@@ -11,6 +11,8 @@ class ImageClassificationServiceImpl: ImageClassificationServiceGrpcKt.ImageClas
         val data = request.dataList.toFloatArray()
         val shape = request.shapeList.toLongArray()
 
+        //        throw StatusException(Status.INVALID_ARGUMENT)
+
         return classifyReply {
             result += service.classify(data, shape).toList()
         }
